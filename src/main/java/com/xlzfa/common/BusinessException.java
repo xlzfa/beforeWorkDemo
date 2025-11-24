@@ -1,4 +1,4 @@
-package com.xlzfa.beforeworkdemo.common;
+package com.xlzfa.common;
 
 
 /**

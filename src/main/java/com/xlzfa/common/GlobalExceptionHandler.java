@@ -1,4 +1,4 @@
-package com.xlzfa.beforeworkdemo.common;
+package com.xlzfa.common;
 
 
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -16,8 +16,8 @@ public class GlobalExceptionHandler {
      * @return
      */
     @ExceptionHandler(BusinessException.class)
-    public ResponseResult handleBusinessException(BusinessException ex) {
-        return ResponseResult.error(ex.getCode(), ex.getMessage());
+    public com.xlzfa.common.ResponseResult handleBusinessException(BusinessException ex) {
+        return com.xlzfa.common.ResponseResult.error(ex.getCode(), ex.getMessage());
     }
 
     /**
@@ -26,8 +26,8 @@ public class GlobalExceptionHandler {
      * @return
      */
     @ExceptionHandler(RuntimeException.class)
-    public ResponseResult handleRuntimeException(RuntimeException ex) {
-        return ResponseResult.error(500, "系统运行异常： " + ex.getMessage());
+    public com.xlzfa.common.ResponseResult handleRuntimeException(RuntimeException ex) {
+        return com.xlzfa.common.ResponseResult.error(500, "系统运行异常： " + ex.getMessage());
     }
 
     /**
@@ -36,8 +36,8 @@ public class GlobalExceptionHandler {
      * @return
      */
     @ExceptionHandler(Exception.class)
-    public ResponseResult handleException(Exception ex) {
-        return ResponseResult.error(500, "未知异常： " + ex.getMessage());
+    public com.xlzfa.common.ResponseResult handleException(Exception ex) {
+        return com.xlzfa.common.ResponseResult.error(500, "未知异常： " + ex.getMessage());
     }
 
 
