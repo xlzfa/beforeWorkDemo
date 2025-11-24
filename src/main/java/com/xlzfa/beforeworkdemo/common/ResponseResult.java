@@ -18,7 +18,7 @@ public class ResponseResult {
     }
 
     //成功，无数据可返回
-    public static ResponseResult sucess() {
+    public static ResponseResult success() {
         return new ResponseResult(200, "success", null);
     }
 
@@ -31,5 +31,11 @@ public class ResponseResult {
     public static ResponseResult error(String msg) {
         return new ResponseResult(500, msg, null);
     }
+    //失败，返回code和信息
+    public static ResponseResult error(Integer code, String msg) {
+        return new ResponseResult(code, msg, null);
+    }
+
+
 
 }
