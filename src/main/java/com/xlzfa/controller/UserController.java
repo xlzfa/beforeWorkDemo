@@ -17,9 +17,10 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/{id}")
+//@GetMapping(value = "/{id}", produces = "application/json")
     public ResponseResult getById(@PathVariable("id") Long id) {
 
-        return ResponseResult.success(userService.getById(id));
+        return userService.getById(id);
 
     }
 
