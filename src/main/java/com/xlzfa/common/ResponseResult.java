@@ -1,5 +1,8 @@
 package com.xlzfa.common;
 
+import lombok.Data;
+
+@Data
 public class ResponseResult {
 
     private Integer code;
