@@ -1,12 +1,10 @@
 package com.xlzfa.controller;
 
 import com.xlzfa.common.ResponseResult;
+import com.xlzfa.domain.dto.UserDto;
 import com.xlzfa.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
@@ -17,11 +15,13 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/{id}")
-//@GetMapping(value = "/{id}", produces = "application/json")
     public ResponseResult getById(@PathVariable("id") Long id) {
-
         return userService.getById(id);
+    }
 
+    @PostMapping("/login")
+    public ResponseResult login(@RequestBody UserDto userDto) {
+        return userService.login(userDto);
     }
 
 }
