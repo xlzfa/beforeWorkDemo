@@ -11,4 +11,6 @@ public interface UserService extends IService<User> {
     ResponseResult getById(Long id);
 
     ResponseResult login(UserDto userDto);
+
+    ResponseResult getMyInfo();
 }

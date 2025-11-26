@@ -20,8 +20,6 @@ public class JwtTokenInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
-        System.out.println("拦截了");
-
         try {
             //放行静态资源
             if(! (handler instanceof HandlerMethod)){

@@ -24,4 +24,8 @@ public class UserController {
         return userService.login(userDto);
     }
 
+    @GetMapping("/info")
+    public ResponseResult getMyInfo() {
+        return userService.getMyInfo();
+    }
 }

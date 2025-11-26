@@ -10,6 +10,7 @@ import com.xlzfa.domain.vo.UserVo;
 import com.xlzfa.service.UserService;
 import com.xlzfa.common.ResponseResult;
 import com.xlzfa.mapper.UserMapper;
+import com.xlzfa.util.BaseContext;
 import com.xlzfa.util.JwtUtil;
 import io.jsonwebtoken.Claims;
 import org.springframework.beans.BeanUtils;
@@ -65,6 +66,20 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
                 .username(user.getUsername())
                 .email(user.getEmail())
                 .token(token)
+                .build();
+
+        return ResponseResult.success(userVo);
+    }
+
+    @Override
+    public ResponseResult getMyInfo() {
+
+        Long id = BaseContext.getCurrentId();
+        User user = baseMapper.selectById(id);
+        UserVo userVo = UserVo.builder()
+                .username(user.getUsername())
+                .createTime(user.getCreateTime())
+                .email(user.getEmail())
                 .build();
 
         return ResponseResult.success(userVo);
